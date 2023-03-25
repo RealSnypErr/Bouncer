@@ -18,7 +18,7 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    log_channel = client.get_channel(1087439512776482816)
+    log_channel = client.get_channel("Log channel ID here")
     if member.bot:
         if member.id not in authorized_bots:
             await member.kick(reason="Bot not authorized")
