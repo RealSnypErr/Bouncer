@@ -25,7 +25,7 @@ async def on_member_join(member):
             msg = (f"**-----------------** \nBot name: {member.name}\nBot ID: {member.id}\n**Check audit log to check who invited the bot**")
             embed=discord.Embed(title="**UNAUTHORIZED BOT KICKED**", description=(f"Place the bot's ID to whitelist.txt to whitelist this bot"), color=0xff0000)
             embed.add_field(name=(msg), value="**-----------------**", inline=False)
-            embed.set_footer(text="Bouncer rev.1")
+            embed.set_footer(text=f"Bouncer rev.1 created for {Guild.name}")
             await log_channel.send(embed=embed)
             
 client.run(token=token)
