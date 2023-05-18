@@ -20,11 +20,12 @@ async def on_ready():
 async def on_member_join(member):
     log_channel = await client.fetch_channel(LOG CHANNEL ID HERE)
     if member.bot:
+        owner = await bot.application_info()
         if member.id not in authorized_bots:
             print(f"Bot {member.id} isnt authorized")
             await member.kick(reason="Bot not authorized")
             msg = (f"**-----------------** \nBot name: {member.name}\nBot ID: {member.id}\n**Check audit log to check who invited the bot**")
-            embed=discord.Embed(title="**UNAUTHORIZED BOT KICKED**", description=(f"Contact {client.owner} or any available Moderator/Whitelister to whitelist this bot"), color=0xff0000)
+            embed=discord.Embed(title="**UNAUTHORIZED BOT KICKED**", description=(f"Contact {owner.owner} or any available Moderator/Whitelister to whitelist this bot"), color=0xff0000)
             embed.add_field(name=(msg), value="**-----------------**", inline=False)
             embed.set_footer(text="Bouncer rev.1")
             await log_channel.send(embed=embed)
